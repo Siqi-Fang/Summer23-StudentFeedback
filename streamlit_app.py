@@ -16,6 +16,5 @@ In the meantime, below is an example of what you can do with just a few lines of
 """
 
 
-with st.echo(code_location='below'):
-    avg_rating_overall = 8.9
-    st.write("The average rating of today is{}".format(avg_rating_overall))
+avg_rating_overall = 8.9
+st.write("The average rating of today is {}".format(avg_rating_overall))
