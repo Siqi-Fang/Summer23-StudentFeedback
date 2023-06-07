@@ -13,11 +13,11 @@ service.login()
 
 # ==== LOAD DATA ====
 df_overall = create_data(service, 0)
-df_today = create_data(service, 1)
+#df_today = create_data(service, 1)
 
 # ==== NUMEBRS ====
 avg_score_overall = df_overall['rating'].mean()
-avg_score_today = df_today['rating'].mean()
+#avg_score_today = df_today['rating'].mean()
 
 # ==== FIGS ====
 fig_avg_rating_overall = pie_rating_count(df_overall)
@@ -26,7 +26,7 @@ fig_rating_overtime = timeseries_rating(df_overall)
 
 
 # ==== DASHBOARD ====
-st.write("The average rating of today is {}".format(avg_score_today))
+#st.write("The average rating of today is {}".format(avg_score_today))
 st.write("The average rating of 2023 Summer Camp is {}".format(avg_score_overall))
 
 st.plotly_chart(fig_avg_rating_overall, theme="streamlit",
