@@ -3,7 +3,7 @@ import altair as alt
 import pandas as pd
 import streamlit as st
 import plotly.express as px
-from utils import * 
+from utils import create_data, MetabaseService, pie_rating_count
 
 """
 Data Preprocessing 
