@@ -4,10 +4,7 @@ import logging
 import os
 import plotly.express as px
 import streamlit as st
-from dotenv import load_dotenv
 
-# Load variables from .env file
-load_dotenv()
 
 EMAIL = st.secrets["EMAIL"]
 PASSWORD = st.secrets["PASSWORD"]
