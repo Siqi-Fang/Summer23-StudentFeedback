@@ -8,6 +8,8 @@ import streamlit as st
 
 EMAIL = st.secrets["EMAIL"]
 PASSWORD = st.secrets["PASSWORD"]
+# TODO: remeber to finish this map !!!!!
+# also handles if DSIs change track ? 
 NAME_2_TRACK = {
     "pixel-penguins": "One Week DS (EST)",
     "algorithmic-armadillos": "One Week DS (PST)",
@@ -71,9 +73,9 @@ service = MetabaseService()
 service.login()
 
 # gets average overall rating
-df_avg_rating_overall = service.retrieve(633)
 # avg_rating_overall = df_avg_rating_overall.iloc[0][0]
 # print(f`Avg rating of today is {avg_rating_overall:.2f}'')
+
 
 def create_data(service, rating_type=0):
     """rating type = 0 -> returns df of cumulative rating
@@ -93,10 +95,34 @@ def create_data(service, rating_type=0):
 
     return df
 
-def pie_rating_count(df, rating_type=0):
+def pie_rating_count(df):
+    """returns pie chart of rating count
+        pass the appropriate df (prob better remove title and add it with strm UI)
+    """
     rating_counts = df['rating'].value_counts()
 
     fig_rating_counts = px.pie(rating_counts, values=rating_counts.values,
                            names=rating_counts.index, title='2023 Summer Camp Rating Breakdown')
 
     return fig_rating_counts
+
+def bar_rating_by_class(df):
+    rating_by_class = df.groupby('name')['rating'].mean().reset_index()
+
+
+    # Create a bar plot using Plotly Express
+    fig_rating_by_class = px.bar(
+        rating_by_class, x='name', y='rating', title='2023 Summer Camp Avg Rating by Class')
+
+    # Display the chart
+    return fig_rating_by_class
+
+def timeseries_rating(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df['date'] = df['date'].dt.strftime('%Y-%m-%d')
+    rating_by_date = df.groupby('date')['rating'].mean().reset_index()
+
+    fig_rating_by_date = px.line(rating_by_date, x='date', y='rating',
+                                title='2023 Summer Camp Avg Rating Each Day', range_x=['2023-06-05', '2023-09-01'])
+    #fig_rating_by_date.update_traces(mode='lines+markers+text', text=df['rating'])
+    return fig_rating_by_date

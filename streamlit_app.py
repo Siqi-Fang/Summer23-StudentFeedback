@@ -3,11 +3,7 @@ import altair as alt
 import pandas as pd
 import streamlit as st
 import plotly.express as px
-from utils import create_data, MetabaseService, pie_rating_count
-
-"""
-Data Preprocessing 
-"""
+from utils import create_data, MetabaseService, pie_rating_count, bar_rating_by_class, timeseries_rating
 
 st.title('Summercamp 2023 Student Feedback & Ratings')
 
@@ -15,12 +11,27 @@ st.title('Summercamp 2023 Student Feedback & Ratings')
 service = MetabaseService()
 service.login()
 
-# get the data
-df_avg = create_data(service, 0)
-fig_avg_rating = pie_rating_count(df_avg, 0)
-#df_today = create_data(service, 1)
+# ==== LOAD DATA ====
+df_overall = create_data(service, 0)
+df_today = create_data(service, 1)
 
-avg_rating_overall = 8.9
-st.write("The average rating of today is {}".format(avg_rating_overall))
-st.plotly_chart(fig_avg_rating, theme="streamlit", use_container_width=True)
+# ==== NUMEBRS ====
+avg_score_overall = df_overall['rating'].mean()
+avg_score_today = df_today['rating'].mean()
 
+# ==== FIGS ====
+fig_avg_rating_overall = pie_rating_count(df_overall)
+fig_rating_by_class_overall = bar_rating_by_class(df_overall)
+fig_rating_overtime = timeseries_rating(df_overall)
+
+
+# ==== DASHBOARD ====
+st.write("The average rating of today is {}".format(avg_score_today))
+st.write("The average rating of 2023 Summer Camp is {}".format(avg_score_overall))
+
+st.plotly_chart(fig_avg_rating_overall, theme="streamlit",
+                use_container_width=True)
+st.plotly_chart(fig_rating_by_class_overall, theme="streamlit",
+                use_container_width=True)
+st.plotly_chart(fig_rating_overtime, theme="streamlit",
+                use_container_width=True)
