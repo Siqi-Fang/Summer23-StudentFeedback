@@ -1,20 +1,26 @@
 from collections import namedtuple
 import altair as alt
-import math
 import pandas as pd
 import streamlit as st
+import plotly.express as px
+from utils import * 
 
 """
-# Welcome to Streamlit!
-
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:
-
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
-
-In the meantime, below is an example of what you can do with just a few lines of code:
+Data Preprocessing 
 """
 
+st.title('Summercamp 2023 Student Feedback & Ratings')
+
+# log in to metabase 
+service = MetabaseService()
+service.login()
+
+# get the data
+df_avg = create_data(service, 0)
+fig_avg_rating = pie_rating_count(df_avg, 0)
+#df_today = create_data(service, 1)
 
 avg_rating_overall = 8.9
 st.write("The average rating of today is {}".format(avg_rating_overall))
+st.plotly_chart(fig_avg_rating, theme="streamlit", use_container_width=True)
+
