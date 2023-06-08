@@ -16,11 +16,12 @@ service.login()
 df_overall = create_data(service, 0)
 df_overall['date'] = pd.to_datetime(df_overall['date'])
 df_overall['date'] = df_overall['date'].dt.strftime('%Y-%m-%d')
-#df_today = create_data(service, 1)
+df_today = create_data(service, 1)
 
 # ==== NUMEBRS ====
 avg_score_overall = df_overall['rating'].mean()
-#avg_score_today = df_today['rating'].mean()
+avg_score_today = df_today['rating'].mean()
+num_resp_today = df_today['rating'].count()
 
 # ==== FIGS ====
 fig_avg_rating_overall = pie_rating_count(df_overall)
@@ -30,8 +31,10 @@ fig_rating_by_class_by_date = rating_by_date_class(df_overall)
 
 # ==== DASHBOARD ====
 #st.write("The average rating of today is {}".format(avg_score_today))
-st.write("The average rating of 2023 Summer Camp is {0:.{1}f}".format(
-    avg_score_overall, 2))
+col1, col2, col3 = st.columns(3)
+col1.metric("Overall Rating", avg_score_overall)
+col2.metric("Todays Rating", avg_score_today)
+col3.metric("# Response Today", num_resp_today)
 
 st.plotly_chart(fig_avg_rating_overall, theme="streamlit",
                 use_container_width=True)
