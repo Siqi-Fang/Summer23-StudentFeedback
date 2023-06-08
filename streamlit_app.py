@@ -27,7 +27,8 @@ fig_rating_overtime = timeseries_rating(df_overall)
 
 # ==== DASHBOARD ====
 #st.write("The average rating of today is {}".format(avg_score_today))
-st.write("The average rating of 2023 Summer Camp is {}".format(avg_score_overall))
+st.write("The average rating of 2023 Summer Camp is {0:.{1}f}".format(
+    avg_score_overall, 2))
 
 st.plotly_chart(fig_avg_rating_overall, theme="streamlit",
                 use_container_width=True)
