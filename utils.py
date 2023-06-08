@@ -82,9 +82,9 @@ def create_data(service, rating_type=0):
         rating type = 1 -> raturns df of todays rating 
     """
     if rating_type == 0:
-        df_rating = service.retrieve(633)
-    else:
         df_rating = service.retrieve(634)
+    else:
+        df_rating = service.retrieve(633)
     # retrieve student info data
     df_class_student = service.retrieve(635)
 
