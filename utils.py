@@ -92,7 +92,7 @@ def create_data(service, rating_type=0):
     df_class_student = service.retrieve(635)
 
     df = pd.merge(df_rating, df_class_student,
-                  on='discord_id', how='inner')
+                  on='discordId', how='inner')
 
     df['track'] = df['name'].map(NAME_2_TRACK)
 
