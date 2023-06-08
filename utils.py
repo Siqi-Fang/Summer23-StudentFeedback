@@ -153,5 +153,6 @@ def rating_by_date_class(df):
     fig.update_layout(height=500, width=700,
                         title_text="2023 Summer Camp Ratings by Date",
                         showlegend=False)
+    return fig
 
     
