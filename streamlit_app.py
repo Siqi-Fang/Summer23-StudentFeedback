@@ -37,7 +37,7 @@ col1.metric("Overall Rating", avg_score_overall)
 col2.metric("Todays Rating", avg_score_today)
 col3.metric("Feedback Received Today", num_resp_today)
 
-cs, cb = st.columns([1, 4])
+cs, cb = st.columns([1, 3])
 cs.plotly_chart(fig_avg_rating_overall, theme="streamlit",
                 use_container_width=True)
 cb.plotly_chart(fig_rating_overtime, theme="streamlit",
