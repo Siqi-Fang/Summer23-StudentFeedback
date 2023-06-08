@@ -1,9 +1,12 @@
-import pandas as pd
 import requests
 import logging
-import os
-import plotly.express as px
+import math
+
 import streamlit as st
+import pandas as pd
+import plotly.express as px
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
 
 
 EMAIL = st.secrets["EMAIL"]
@@ -126,3 +129,29 @@ def timeseries_rating(df):
                                 title='2023 Summer Camp Avg Rating Each Day', range_x=['2023-06-05', '2023-09-01'])
     #fig_rating_by_date.update_traces(mode='lines+markers+text', text=df['rating'])
     return fig_rating_by_date
+
+def rating_by_date_class(df):
+    """Takes the overall df as input"""
+    classes = df['name'].unique()
+    total_num_of_classes = len(classes)
+    COL_PER_ROW = 2 
+    num_of_rows = math.ceil(total_num_of_classes/COL_PER_ROW)
+
+    rating_by_class = df.groupby('name')['rating'].mean()
+    fig = make_subplots(
+        rows=num_of_rows, cols=COL_PER_ROW,
+        subplot_titles=classes,
+        shared_xaxes=True,
+    )
+
+
+    for i, c in enumerate(classes):
+        calss_avg_rating = df[df['name'] == c].groupby('date')['rating'].mean().reset_index()
+        fig.add_trace(go.Bar(x=calss_avg_rating['date'], y=calss_avg_rating['rating']),
+                        i//2+1, i%2+1)
+
+    fig.update_layout(height=500, width=700,
+                        title_text="2023 Summer Camp Ratings by Date",
+                        showlegend=False)
+
+    
