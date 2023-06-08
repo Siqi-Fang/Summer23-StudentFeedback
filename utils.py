@@ -72,7 +72,6 @@ class MetabaseService:
 
 
 service = MetabaseService()
-
 service.login()
 
 # gets average overall rating
@@ -121,14 +120,27 @@ def bar_rating_by_class(df):
     return fig_rating_by_class
 
 def timeseries_rating(df):
-    df['date'] = pd.to_datetime(df['date'])
-    df['date'] = df['date'].dt.strftime('%Y-%m-%d')
     rating_by_date = df.groupby('date')['rating'].mean().reset_index()
+    count_by_date = df.groupby('date')['rating'].count().reset_index()
 
-    fig_rating_by_date = px.line(rating_by_date, x='date', y='rating',
-                                title='2023 Summer Camp Avg Rating Each Day', range_x=['2023-06-05', '2023-09-01'])
-    #fig_rating_by_date.update_traces(mode='lines+markers+text', text=df['rating'])
-    return fig_rating_by_date
+    fig = make_subplots(
+        rows=2, cols=1,
+        subplot_titles=("2023 Summer Camp Daily Avg Rating",
+                        "2023 Summer Camp Number of Ratings Recieved"),
+        shared_xaxes=True,)
+
+    fig.add_trace(go.Scatter(x=rating_by_date['date'], y=rating_by_date['rating']),
+                1, 1)
+    fig.add_trace(go.Scatter(x=count_by_date['date'], y=count_by_date['rating']),
+                2, 1)
+
+    fig.update_layout(height=500, width=700,
+                    showlegend=False,
+                    xaxis_tickformat="%d-%m",
+                    xaxis_range=['2023-06-05', '2023-09-01']
+                    )
+    
+    return fig
 
 def rating_by_date_class(df):
     """Takes the overall df as input"""
@@ -143,7 +155,6 @@ def rating_by_date_class(df):
         subplot_titles=classes,
         shared_xaxes=True,
     )
-
 
     for i, c in enumerate(classes):
         calss_avg_rating = df[df['name'] == c].groupby('date')['rating'].mean().reset_index()
