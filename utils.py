@@ -114,7 +114,7 @@ def bar_rating_by_class(df):
 
     # Create a bar plot using Plotly Express
     fig_rating_by_class = px.bar(
-        rating_by_class, x='name', y='rating', title='2023 Summer Camp Avg Rating by Class')
+        rating_by_class, x='name', y='rating', title='2023 Summer Camp Overall Rating by Class')
 
     # Display the chart
     return fig_rating_by_class
@@ -146,7 +146,7 @@ def rating_by_date_class(df):
     """Takes the overall df as input"""
     classes = df['name'].unique()
     total_num_of_classes = len(classes)
-    COL_PER_ROW = 2 
+    COL_PER_ROW = 3
     num_of_rows = math.ceil(total_num_of_classes/COL_PER_ROW)
 
     rating_by_class = df.groupby('name')['rating'].mean()
@@ -159,10 +159,10 @@ def rating_by_date_class(df):
     for i, c in enumerate(classes):
         calss_avg_rating = df[df['name'] == c].groupby('date')['rating'].mean().reset_index()
         fig.add_trace(go.Bar(x=calss_avg_rating['date'], y=calss_avg_rating['rating']),
-                        i//2+1, i%2+1)
+                      i//COL_PER_ROW+1, i % COL_PER_ROW+1)
 
     fig.update_layout(height=500, width=700,
-                        title_text="2023 Summer Camp Ratings by Date",
+                        title_text="2023 Summer Camp Daily Avg Rating",
                         showlegend=False)
     return fig
 

@@ -6,7 +6,7 @@ import plotly.express as px
 from utils import create_data, MetabaseService, pie_rating_count, bar_rating_by_class, \
                     timeseries_rating, rating_by_date_class
 
-st.set_page_config(layout="wide")
+st.set_page_config(layout="wide") # needs to be the first call!
 st.title('Summercamp 2023 Student Feedback & Ratings')
 
 # log in to metabase 
