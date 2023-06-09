@@ -4,10 +4,10 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 from utils import create_data, MetabaseService, pie_rating_count, bar_rating_by_class, \
-                    timeseries_rating, rating_by_date_class
+    timeseries_rating, rating_by_date_class, rating_by_date_track
 
 st.set_page_config(layout="wide") # needs to be the first call!
-st.title('Summercamp 2023 Student Feedback & Ratings')
+st.title('Summer Camp 2023 Student Feedback & Ratings')
 
 # log in to metabase 
 service = MetabaseService()
@@ -29,9 +29,9 @@ fig_avg_rating_overall = pie_rating_count(df_overall)
 fig_rating_by_class_overall = bar_rating_by_class(df_overall)
 fig_rating_overtime = timeseries_rating(df_overall)
 fig_rating_by_class_by_date = rating_by_date_class(df_overall)
+fig_rating_by_track_by_date = rating_by_date_track(df_overall)
 
 # ==== DASHBOARD ====
-#st.write("The average rating of today is {}".format(avg_score_today))
 col1, col2, col3 = st.columns(3)
 col1.metric("Overall Rating", avg_score_overall)
 col2.metric("Todays Rating", avg_score_today)
@@ -42,6 +42,10 @@ cs.plotly_chart(fig_avg_rating_overall, theme="streamlit",
                 use_container_width=True)
 cb.plotly_chart(fig_rating_overtime, theme="streamlit",
                 use_container_width=True)
+
+st.plotly_chart(fig_rating_by_track_by_date, theme="streamlit",
+                use_container_width=True)
+
 
 numbers, text = st.tabs(["📈 Ratings", "🗃 Qualitative Feedback"])
 
