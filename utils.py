@@ -199,7 +199,7 @@ def rating_by_date_class(df):
         fig.add_trace(go.Bar(x=calss_avg_rating['date'], y=calss_avg_rating['rating']),
                       i//COL_PER_ROW+1, i % COL_PER_ROW+1)
 
-    fig.update_layout(height=1000, width=700,
+    fig.update_layout(height=1800, width=700,
                         title_text="2023 Summer Camp Daily Avg Rating",
                         showlegend=False,)
     return fig
