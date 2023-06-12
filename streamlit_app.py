@@ -21,8 +21,8 @@ df_overall['date'] = df_overall['date'].dt.strftime('%Y-%m-%d')
 df_today = create_data(service, 1)
 
 # ==== NUMEBRS ====
-avg_score_overall = df_overall['rating'].mean().round(2)
-avg_score_today = df_today['rating'].mean().round(2)
+avg_score_overall = round(df_overall['rating'].mean(), 2)
+avg_score_today = round(df_today['rating'].mean(), 2)
 num_resp_today = df_today['rating'].count()
 
 # ==== FIGS ====
