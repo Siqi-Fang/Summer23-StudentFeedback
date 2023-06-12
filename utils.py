@@ -17,6 +17,32 @@ NAME_2_TRACK = {
     "pixel-penguins": "One Week DS (EST)",
     "algorithmic-armadillos": "One Week DS (PST)",
     "cyborg-cheetahs": "One Week GameDev (PST)",
+    "galactic-goblins": "3-Week NLP (EST)",
+    "crystal-cyclones": "3-Week NLP (EST)",
+    "delta-droids": "3-Week NLP (EST)",
+    "energy-emperors": "3-Week NLP (EST)",
+    "binary-breakeres": "3-Week NLP (EST)",
+    "twilight-titans": "3-Week NLP (EST)",
+    "lunar-lasers": "3-Week NLP (EST)",
+    "turbo-tornadoes": "3-Week CV (EST)",
+    "vector-vipers": "3-Week CV (EST)",
+    "diamond-dragons": "3-Week CV (EST)",
+    "comet-crusaders" :"3-Week CV (EST)",
+    "mystic-moons": "3-Week CV (EST)",
+    "electron-elephants": "3-Week DS (EST)",
+    "kepler-koalas": "3-Week DS (EST)",
+    "solar-squirrels": "3-Week DS (EST)",
+
+    "web-wolves": "One Week DS (EST)",
+    "protocol-parrots": "One Week DS (EST)",
+    "network-nighthawks": "One Week GameDev (EST)",
+    "server-snakes": "One Week GameDev (EST)",
+    "photon-phoenixes": "3-Week NLP (PST)",
+    "helix-hawks": "3-Week NLP (PST)",
+    "matrix-mustangs": "3-Week NLP (PST)",
+    "fusion-flamingos": "3-Week NLP (PST)",
+    "omega-otters": "3-Week NLP (PST)",
+
 }
 
 class MetabaseService:
