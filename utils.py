@@ -37,11 +37,24 @@ NAME_2_TRACK = {
     "protocol-parrots": "One Week DS (EST)",
     "network-nighthawks": "One Week GameDev (EST)",
     "server-snakes": "One Week GameDev (EST)",
+
+    "silicon-starlings": "One Week DS (PST)",
+    "firewall-flamingos": "One Week DS (PST)",
+    "overclock-owls": "One Week GameDev (PST)",
     "photon-phoenixes": "3-Week NLP (PST)",
     "helix-hawks": "3-Week NLP (PST)",
     "matrix-mustangs": "3-Week NLP (PST)",
     "fusion-flamingos": "3-Week NLP (PST)",
     "omega-otters": "3-Week NLP (PST)",
+    "cyberspace-cheetahs": "3-Week CV (PST)",
+    "jetstream-jaguars": "3-Week CV (PST)",
+    "vortex-vultures": "3-Week CV (PST)",
+    "data-dolphins": "3-Week CV (PST)",
+    "lumen-lemurs": "3-Week CV (PST)",
+    "specturm-stingrays": "3-Week DS (PST)",
+    "kilobit-koalas": "3-Week DS (PST)",
+    "radiant-ravens": "3-Week DS (PST)",
+    "fractal-firebirds": "3-Week DS (PST)",
 
 }
 
