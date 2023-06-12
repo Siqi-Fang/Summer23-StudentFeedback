@@ -19,7 +19,7 @@ df_overall = create_data(service, 0)
 df_overall['date'] = pd.to_datetime(df_overall['date'])
 df_overall['date'] = df_overall['date'].dt.strftime('%Y-%m-%d')
 df_today = create_data(service, 1)
-
+df_qualitative = df_today[["comment", "rating", "studentUsername","name","track"]]
 # ==== NUMEBRS ====
 avg_score_overall = round(df_overall['rating'].mean(), 2)
 avg_score_today = round(df_today['rating'].mean(), 2)
@@ -59,3 +59,4 @@ numbers.plotly_chart(fig_rating_by_class_by_date, theme="streamlit",
 text.subheader("Text feedback")
 text.write("TBD")
 
+text.dataframe(df_qualitative)
