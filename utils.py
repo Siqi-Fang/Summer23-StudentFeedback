@@ -191,7 +191,7 @@ def rating_by_date_class(df):
     fig = make_subplots(
         rows=num_of_rows, cols=COL_PER_ROW,
         subplot_titles=classes,
-        shared_xaxes=True,
+        #shared_xaxes=True,
     )
 
     for i, c in enumerate(classes):
