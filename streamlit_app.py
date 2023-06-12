@@ -57,6 +57,6 @@ numbers.plotly_chart(fig_rating_by_class_by_date, theme="streamlit",
                 use_container_width=True)
 
 text.subheader("Text feedback")
-text.write("TBD")
 
-text.dataframe(df_qualitative)
+text.dataframe(df_qualitative,
+               hide_index=True,)
