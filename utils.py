@@ -21,7 +21,7 @@ NAME_2_TRACK = {
     "crystal-cyclones": "3-Week NLP (EST)",
     "delta-droids": "3-Week NLP (EST)",
     "energy-emperors": "3-Week NLP (EST)",
-    "binary-breakeres": "3-Week NLP (EST)",
+    "binary-breakers": "3-Week NLP (EST)",
     "twilight-titans": "3-Week NLP (EST)",
     "lunar-lasers": "3-Week NLP (EST)",
     "turbo-tornadoes": "3-Week CV (EST)",
