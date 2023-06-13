@@ -207,6 +207,7 @@ def rating_by_date_class(df):
 
 def rating_by_date_track(df):
     tracks = df['track'].unique()
+    print(tracks)
     total_num_of_tracks = len(tracks)
     COL_PER_ROW = 3
     num_of_rows = math.ceil(total_num_of_tracks/COL_PER_ROW)
@@ -214,7 +215,7 @@ def rating_by_date_track(df):
     fig = make_subplots(
         rows=num_of_rows, cols=COL_PER_ROW,
         subplot_titles=tracks,
-        shared_xaxes=True,
+        #shared_xaxes=True,
     )
 
     for i, c in enumerate(tracks):
@@ -223,7 +224,7 @@ def rating_by_date_track(df):
         fig.add_trace(go.Bar(x=avg_rating['date'], y=avg_rating['rating']),
                         i//3+1, i % 3+1)
 
-    fig.update_layout(height=500, width=700,
+    fig.update_layout(height=700, width=700,
                     title_text="2023 Summer Camp Daily Avg Ratings",
                     showlegend=False)
     
