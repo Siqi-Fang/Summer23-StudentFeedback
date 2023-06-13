@@ -51,7 +51,7 @@ NAME_2_TRACK = {
     "vortex-vultures": "3-Week CV (PST)",
     "data-dolphins": "3-Week CV (PST)",
     "lumen-lemurs": "3-Week CV (PST)",
-    "specturm-stingrays": "3-Week DS (PST)",
+    "spectrum-stingrays": "3-Week DS (PST)",
     "kilobit-koalas": "3-Week DS (PST)",
     "radiant-ravens": "3-Week DS (PST)",
     "fractal-firebirds": "3-Week DS (PST)",
@@ -133,6 +133,8 @@ def create_data(service, rating_type=0):
                   on='discordId', how='inner')
 
     df['track'] = df['name'].map(NAME_2_TRACK)
+
+    df = df[df['track'].notna()]
 
     return df
 
