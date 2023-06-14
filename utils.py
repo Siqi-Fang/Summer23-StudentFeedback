@@ -113,10 +113,6 @@ class MetabaseService:
 service = MetabaseService()
 service.login()
 
-# gets average overall rating
-# avg_rating_overall = df_avg_rating_overall.iloc[0][0]
-# print(f`Avg rating of today is {avg_rating_overall:.2f}'')
-
 
 def create_data(service, rating_type=0):
     """rating type = 0 -> returns df of cumulative rating
