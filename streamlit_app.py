@@ -21,6 +21,8 @@ df_overall['date'] = df_overall['date'].dt.strftime('%Y-%m-%d')
 df_today = create_data(service, 1)
 df_qualitative = df_overall[["date", "comment", "rating", "studentUsername","name","track"]]
 df_qualitative = df_qualitative.sort_values(by='date', ascending=False)
+df_qualitative_today = df_today[["comment",
+                                 "rating", "studentUsername", "name", "track"]]
 # ==== NUMEBRS ====
 avg_score_overall = round(df_overall['rating'].mean(), 2)
 avg_score_today = round(df_today['rating'].mean(), 2)
@@ -49,15 +51,17 @@ st.plotly_chart(fig_rating_by_track_by_date, theme="streamlit",
                 use_container_width=True)
 
 
-numbers, text = st.tabs(["📈 Ratings", "🗃 Qualitative Feedback"])
+numbers, today_text, text = st.tabs(
+    ["📈 Ratings", "📅 Today's Feedback ", "🗃 All Feedback"])
 
 numbers.subheader("Ratings")
 numbers.plotly_chart(fig_rating_by_class_overall, theme="streamlit",
                 use_container_width=True)
 numbers.plotly_chart(fig_rating_by_class_by_date, theme="streamlit",
                 use_container_width=True)
-
-text.subheader("Text feedback")
+today_text.subheader("Todays Feedback")
+today_text.dataframe(df_qualitative_today, hide_idex=True)
+text.subheader("Text Feedback")
 
 text.dataframe(df_qualitative,
                hide_index=True,)

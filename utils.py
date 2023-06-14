@@ -123,11 +123,11 @@ def create_data(service, rating_type=0):
         rating type = 1 -> raturns df of todays rating 
     """
     if rating_type == 0:
-        df_rating = service.retrieve(634)
+        df_rating = service.retrieve(639)
     else:
-        df_rating = service.retrieve(633)
+        df_rating = service.retrieve(638)
     # retrieve student info data
-    df_class_student = service.retrieve(635)
+    df_class_student = service.retrieve(640)
 
     df = pd.merge(df_rating, df_class_student,
                   on='discordId', how='inner')
