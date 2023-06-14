@@ -19,7 +19,8 @@ df_overall = create_data(service, 0)
 df_overall['date'] = pd.to_datetime(df_overall['date'])
 df_overall['date'] = df_overall['date'].dt.strftime('%Y-%m-%d')
 df_today = create_data(service, 1)
-df_qualitative = df_today[["comment", "rating", "studentUsername","name","track"]]
+df_qualitative = df_overall[["date", "comment", "rating", "studentUsername","name","track"]]
+df_qualitative.sort_values(by='date', ascending=False)
 # ==== NUMEBRS ====
 avg_score_overall = round(df_overall['rating'].mean(), 2)
 avg_score_today = round(df_today['rating'].mean(), 2)
