@@ -60,7 +60,7 @@ numbers.plotly_chart(fig_rating_by_class_overall, theme="streamlit",
 numbers.plotly_chart(fig_rating_by_class_by_date, theme="streamlit",
                 use_container_width=True)
 today_text.subheader("Todays Feedback")
-today_text.dataframe(df_qualitative_today, hide_idex=True)
+today_text.dataframe(df_qualitative_today, hide_index=True)
 text.subheader("Text Feedback")
 
 text.dataframe(df_qualitative,
