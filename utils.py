@@ -55,6 +55,11 @@ NAME_2_TRACK = {
     "kilobit-koalas": "3-Week DS (PST)",
     "radiant-ravens": "3-Week DS (PST)",
     "fractal-firebirds": "3-Week DS (PST)",
+    "agile-antelopes": "One Week DS (EST)",
+    "brawny-beavers": "One Week DS (EST)",
+    "crimson-crocodiles": "One Week GameDev (EST)", 
+    "dynamic-dolphins": "One Week DS (PST)",
+
 
 }
 
