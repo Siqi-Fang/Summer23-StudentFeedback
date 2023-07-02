@@ -58,7 +58,7 @@ curr_ratings, today_text, text, past_ratings = st.tabs(
 curr_ratings.subheader("Batch B Ratings")
 curr_ratings.plotly_chart(fig_rating_by_class_by_date_curr, theme="streamlit",
                           use_container_width=True)
-past_ratings.plotly_chart(fig_rating_by_class_overall_curr, theme="streamlit",
+curr_ratings.plotly_chart(fig_rating_by_class_overall_curr, theme="streamlit",
                           use_container_width=True)
 
 today_text.subheader("Todays Feedback")
