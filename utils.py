@@ -165,6 +165,8 @@ def bar_rating_by_class(df):
     fig_rating_by_class = px.bar(
         rating_by_class, x='name', y='rating', title='2023 Summer Camp Overall Rating by Class')
 
+    fig_rating_by_class.update_layout(
+        xaxis={'categoryorder': 'total ascending'})
     # Display the chart
     return fig_rating_by_class
 
@@ -212,7 +214,7 @@ def rating_by_date_class(df):
     fig.update_layout(height=1800, width=700,
                         title_text="2023 Summer Camp Daily Avg Rating",
                         showlegend=False,
-                      xaxis={'categoryorder': 'total ascending'})
+                      )
     return fig
 
 
