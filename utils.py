@@ -187,7 +187,6 @@ def timeseries_rating(df):
                     showlegend=False,
                     xaxis_tickformat="%d-%m",
                     xaxis_range=['2023-06-05', '2023-09-01'],
-                    xaxis={'categoryorder': 'total ascending'}
                     )
     
     return fig
@@ -212,7 +211,8 @@ def rating_by_date_class(df):
 
     fig.update_layout(height=1800, width=700,
                         title_text="2023 Summer Camp Daily Avg Rating",
-                        showlegend=False,)
+                        showlegend=False,
+                      xaxis={'categoryorder': 'total ascending'})
     return fig
 
 
