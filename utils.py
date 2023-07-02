@@ -244,7 +244,7 @@ def bar_rating_by_class(df, overall):
         rating_by_class = df.groupby('name')['rating'].mean().reset_index()
     else:
         temp = df.groupby('name')['rating'].mean().reset_index()
-        rating_by_class = temp[temp['name'] in CURRENT_CLASSES]
+        rating_by_class = temp[temp['name'].isin(CURRENT_CLASSES)]
 
     # Create a bar plot using Plotly Express
     fig_rating_by_class = px.bar(
