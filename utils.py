@@ -187,6 +187,7 @@ def timeseries_rating(df):
                     showlegend=False,
                     xaxis_tickformat="%d-%m",
                     xaxis_range=['2023-06-05', '2023-09-01']
+                    xaxis={'categoryorder': 'total ascending'}
                     )
     
     return fig
