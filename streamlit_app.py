@@ -52,7 +52,7 @@ st.plotly_chart(fig_rating_by_track_by_date, theme="streamlit",
                 use_container_width=True)
 
 
-curr_ratings, today_text, text, past_ratings = st.tabs(
+curr_ratings, past_ratings, today_text, text = st.tabs(
     ["📈 Batch B Ratings", "📅 Today's Feedback ", "🗃 All Feedback", "📈 All Ratings", ])
 
 curr_ratings.subheader("Batch B Ratings")
@@ -61,15 +61,17 @@ curr_ratings.plotly_chart(fig_rating_by_class_by_date_curr, theme="streamlit",
 curr_ratings.plotly_chart(fig_rating_by_class_overall_curr, theme="streamlit",
                           use_container_width=True)
 
-today_text.subheader("Todays Feedback")
-today_text.dataframe(df_qualitative_today, hide_index=True)
-text.subheader("Text Feedback")
-
-text.dataframe(df_qualitative,
-               hide_index=True,)
-
 past_ratings.subheader("All Ratings")
 past_ratings.plotly_chart(fig_rating_by_class_overall, theme="streamlit",
                           use_container_width=True)
 past_ratings.plotly_chart(fig_rating_by_class_by_date, theme="streamlit",
                           use_container_width=True)
+
+
+today_text.subheader("Todays Feedback")
+today_text.dataframe(df_qualitative_today, hide_index=True)
+
+text.subheader("Text Feedback")
+text.dataframe(df_qualitative,
+               hide_index=True,)
+
