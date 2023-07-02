@@ -68,7 +68,89 @@ NAME_2_TRACK = {
     "vivacious-vultures": "One Week DS (EST)",
     "whirlwind-walruses": "One Week GameDev (EST)",
     "stellar-stingrays": "One Week DS (EST)",
+# BATCH B
+    "crazy-centipedes": "One Week DS (EST)",
+
+    "resilient-raccoons": "3-Week DS (EST)",
+    "humble-hedgehogs": "3-Week DS (EST)",
+    "openminded-octopuses": "3-Week DS (EST)",
+
+    "passionate-pigeons": "3-Week DS (PST)",
+    "wandering-woodpeckers": "3-Week DS (PST)",
+    "dynamic-dalmatians": "3-Week DS (PST)",
+    "intelligent-irukandji": "3-Week DS (PST)",
+    "witty-wombats": "3-Week DS (PST)",
+    "quirky-quesadillas": "3-Week DS (PST)",
+
+    "fabulous-flamingos": "3-Week NLP (EST)",
+    "jolly-jackrabbits": "3-Week NLP (EST)",
+    "lovely-llamas": "3-Week NLP (EST)",
+    "peaceful-pandas": "3-Week NLP (EST)",
+    "sensible-seahorses":"3-Week NLP (EST)",
+    "harmonic-hawks": "3-Week NLP (EST)",
+    "joyous-jackals": "3-Week NLP (EST)",
+    "noteworthy-nuthatches": "3-Week NLP (EST)",
+
+    "sincere-swallows": "3-Week NLP (PST)",
+    "mystical-manatees": "3-Week NLP (PST)",
+    "gentle-giraffes": "3-Week NLP (PST)",
+    "fabulous-fajitas": "3-Week NLP (PST)",
+    "proud-porcupines":"3-Week NLP (PST)",
+
+    "gleeful-geese": "3-Week CV (EST)",
+    "merry-mockingbirds": "3-Week CV (EST)",
+    "cheerful-cheetahs": "3-Week CV (EST)",
+    "ambitious-aardvarks": "3-Week CV (EST)",
+    "dapper-dingoes": "3-Week CV (EST)",
+
+    "feist-finches": "3-Week CV (PST)",
+    "lovable-lobsters": "3-Week CV (PST)",
+    "curious-caterpillars": "3-Week CV (PST)",
+    "brilliant-butterflies": "3-Week CV (PST)",
+    "radiant-roadrunners": "3-Week CV (PST)",
+
 }
+
+CURRENT_CLASSES = [
+    "crazy-centipedes",
+    "resilient-raccoons",
+    "humble-hedgehogs",
+    "openminded-octopuses"
+
+    "passionate-pigeons",
+    "wandering-woodpeckers",
+    "dynamic-dalmatians",
+    "intelligent-irukandji",
+    "witty-wombats",
+    "quirky-quesadillas",
+
+    "fabulous-flamingos",
+    "jolly-jackrabbits",
+    "lovely-llamas",
+    "peaceful-pandas",
+    "sensible-seahorses",
+    "harmonic-hawks",
+    "joyous-jackals",
+    "noteworthy-nuthatches",
+
+    "sincere-swallows",
+    "mystical-manatees",
+    "gentle-giraffes",
+    "fabulous-fajitas",
+    "proud-porcupines",
+
+    "gleeful-geese",
+    "merry-mockingbirds",
+    "cheerful-cheetahs",
+    "ambitious-aardvarks",
+    "dapper-dingoes",
+
+    "feist-finches",
+    "lovable-lobsters",
+    "curious-caterpillars",
+    "brilliant-butterflies",
+    "radiant-roadrunners",
+]
 
 class MetabaseService:
     '''
@@ -157,9 +239,12 @@ def pie_rating_count(df):
 
     return fig_rating_counts
 
-def bar_rating_by_class(df):
-    rating_by_class = df.groupby('name')['rating'].mean().reset_index()
-
+def bar_rating_by_class(df, overall):
+    if overall == 1:
+        rating_by_class = df.groupby('name')['rating'].mean().reset_index()
+    else:
+        temp = df.groupby('name')['rating'].mean().reset_index()
+        rating_by_class = temp[temp['name'] in CURRENT_CLASSES]
 
     # Create a bar plot using Plotly Express
     fig_rating_by_class = px.bar(
@@ -193,9 +278,12 @@ def timeseries_rating(df):
     
     return fig
 
-def rating_by_date_class(df):
+def rating_by_date_class(df, overall):
     """Takes the overall df as input"""
-    classes = df['name'].unique()
+    if overall == 1:
+        classes = df['name'].unique()
+    else:
+        classes = CURRENT_CLASSES
     total_num_of_classes = len(classes)
     COL_PER_ROW = 3
     num_of_rows = math.ceil(total_num_of_classes/COL_PER_ROW)

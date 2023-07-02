@@ -30,9 +30,11 @@ num_resp_today = df_today['rating'].count()
 
 # ==== FIGS ====
 fig_avg_rating_overall = pie_rating_count(df_overall)
-fig_rating_by_class_overall = bar_rating_by_class(df_overall)
+fig_rating_by_class_overall = bar_rating_by_class(df_overall, 1)
+fig_rating_by_class_overall_curr = bar_rating_by_class(df_overall, 0)
 fig_rating_overtime = timeseries_rating(df_overall)
-fig_rating_by_class_by_date = rating_by_date_class(df_overall)
+fig_rating_by_class_by_date = rating_by_date_class(df_overall, 1)
+fig_rating_by_class_by_date_curr = rating_by_date_class(df_overall, 0)
 fig_rating_by_track_by_date = rating_by_date_track(df_overall)
 
 # ==== DASHBOARD ====
@@ -46,22 +48,28 @@ cs.plotly_chart(fig_avg_rating_overall, theme="streamlit",
                 use_container_width=True)
 cb.plotly_chart(fig_rating_overtime, theme="streamlit",
                 use_container_width=True)
-
 st.plotly_chart(fig_rating_by_track_by_date, theme="streamlit",
                 use_container_width=True)
 
 
-numbers, today_text, text = st.tabs(
-    ["📈 Ratings", "📅 Today's Feedback ", "🗃 All Feedback"])
+curr_ratings, today_text, text, past_ratings = st.tabs(
+    ["📈 Batch B Ratings", "📅 Today's Feedback ", "🗃 All Feedback", "📈 All Ratings", ])
 
-numbers.subheader("Ratings")
-numbers.plotly_chart(fig_rating_by_class_overall, theme="streamlit",
-                use_container_width=True)
-numbers.plotly_chart(fig_rating_by_class_by_date, theme="streamlit",
-                use_container_width=True)
+curr_ratings.subheader("Batch B Ratings")
+curr_ratings.plotly_chart(fig_rating_by_class_by_date_curr, theme="streamlit",
+                          use_container_width=True)
+past_ratings.plotly_chart(fig_rating_by_class_overall_curr, theme="streamlit",
+                          use_container_width=True)
+
 today_text.subheader("Todays Feedback")
 today_text.dataframe(df_qualitative_today, hide_index=True)
 text.subheader("Text Feedback")
 
 text.dataframe(df_qualitative,
                hide_index=True,)
+
+past_ratings.subheader("All Ratings")
+past_ratings.plotly_chart(fig_rating_by_class_overall, theme="streamlit",
+                          use_container_width=True)
+past_ratings.plotly_chart(fig_rating_by_class_by_date, theme="streamlit",
+                          use_container_width=True)
