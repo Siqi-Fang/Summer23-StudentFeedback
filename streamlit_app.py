@@ -16,7 +16,7 @@ service.login()
 
 # ==== LOAD DATA ====
 df_overall = create_data(service, 0)
-df_overall['date'] = df['date'].str[:10]
+df_overall['date'] = df_overall['date'].str[:10]
 df_today = create_data(service, 1)
 df_qualitative = df_overall[["date", "comment", "rating", "studentUsername","name","track"]]
 df_qualitative = df_qualitative.sort_values(by='date', ascending=False)
