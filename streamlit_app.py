@@ -16,9 +16,7 @@ service.login()
 
 # ==== LOAD DATA ====
 df_overall = create_data(service, 0)
-df_overall['date'] = pd.to_datetime(
-    df_overall['date'], format='%Y-%m-%dT%H:%M:%S%z')
-df_overall['date'] = df_overall['date'].dt.strftime('%Y-%m-%d')
+df_overall['date'] = pd.to_datetime(df_overall['date']).dt.date
 df_today = create_data(service, 1)
 df_qualitative = df_overall[["date", "comment", "rating", "studentUsername","name","track"]]
 df_qualitative = df_qualitative.sort_values(by='date', ascending=False)
