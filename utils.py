@@ -115,7 +115,7 @@ CURRENT_CLASSES = [
     "crazy-centipedes",
     "resilient-raccoons",
     "humble-hedgehogs",
-    "openminded-octopuses"
+    "openminded-octopuses",
 
     "passionate-pigeons",
     "wandering-woodpeckers",
