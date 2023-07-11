@@ -112,7 +112,6 @@ NAME_2_TRACK = {
     "unforgettable-udon": "One Week DS (EST)",
     "magnificent-macaroons": "One Week DS (EST)",
     "daring-dumplings":"One Week DS (EST)",
-
     "happy-hamburgers": "One Week DS (PST)",
     "bountiful-bagels": "One Week DS (PST)",
     "toasty-tangerine":"One Week DS (PST)",
@@ -157,6 +156,12 @@ CURRENT_CLASSES = [
     "curious-caterpillars",
     "brilliant-butterflies",
     "radiant-roadrunners",
+    "unforgettable-udon",
+    "magnificent-macaroons",
+    "daring-dumplings",
+    "happy-hamburgers",
+    "bountiful-bagels",
+    "toasty-tangerine",
 ]
 
 class MetabaseService:
