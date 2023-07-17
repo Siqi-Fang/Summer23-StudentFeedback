@@ -108,17 +108,21 @@ NAME_2_TRACK = {
     "curious-caterpillars": "3-Week CV (PST)",
     "brilliant-butterflies": "3-Week CV (PST)",
     "radiant-roadrunners": "3-Week CV (PST)",
-
+    #B2
     "unforgettable-udon": "One Week DS (EST)",
     "magnificent-macaroons": "One Week DS (EST)",
     "daring-dumplings":"One Week DS (EST)",
     "happy-hamburgers": "One Week DS (PST)",
     "bountiful-bagels": "One Week DS (PST)",
     "toasty-tangerine":"One Week DS (PST)",
+    # B3
+    "hungry-hashbrowns": "One Week DS (EST)",
+    "jolly-jalapenos": "One Week GameDev (EST)",
+    "whimsical-watermelons": "One Week DS (PST)",
+    "giggly-gummybears": "One Week GameDev (EST)",
 }
 
 CURRENT_CLASSES = [
-    "crazy-centipedes",
     "resilient-raccoons",
     "humble-hedgehogs",
     "openminded-octopuses",
@@ -156,12 +160,11 @@ CURRENT_CLASSES = [
     "curious-caterpillars",
     "brilliant-butterflies",
     "radiant-roadrunners",
-    "unforgettable-udon",
-    "magnificent-macaroons",
-    "daring-dumplings",
-    "happy-hamburgers",
-    "bountiful-bagels",
-    "toasty-tangerine",
+    #b3
+    "hungry-hashbrowns",
+    "jolly-jalapenos",
+    "whimsical-watermelons",
+    "giggly-gummybears",
 ]
 
 class MetabaseService:
