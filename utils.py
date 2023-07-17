@@ -77,7 +77,7 @@ NAME_2_TRACK = {
 
     "passionate-pigeons": "3-Week DS (PST)",
     "wandering-woodpeckers": "3-Week DS (PST)",
-    "dynamic-dalmatians": "3-Week DS (PST)",
+    "dynamic-dalmations": "3-Week DS (PST)",
     "intelligent-irukandji": "3-Week DS (PST)",
     "witty-wombats": "3-Week DS (PST)",
     "quirky-quesadillas": "3-Week DS (PST)",
@@ -129,7 +129,7 @@ CURRENT_CLASSES = [
 
     "passionate-pigeons",
     "wandering-woodpeckers",
-    "dynamic-dalmatians",
+    "dynamic-dalmations",
     "intelligent-irukandji",
     "witty-wombats",
     "quirky-quesadillas",
