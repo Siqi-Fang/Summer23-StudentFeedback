@@ -13,6 +13,17 @@ EMAIL = st.secrets["EMAIL"]
 PASSWORD = st.secrets["PASSWORD"]
 # TODO: remeber to finish this map !!!!!
 # also handles if DSIs change track ? 
+TRACKS = ["One Week DS (EST)",
+          "One Week DS (PST)",
+          "One Week GameDev (EST)",
+          "One Week GameDev (PST)",
+          "3-Week DS (EST)",
+          "3-Week DS (PST)",
+          "3-Week CV (EST)",
+          "3-Week CV (PST)",
+          "3-Week NLP (EST)",
+          "3-Week NLP (PST)",
+          ]
 NAME_2_TRACK = {
  "pixel-penguins": "One Week DS (EST)",
     "algorithmic-armadillos": "One Week DS (PST)",
