@@ -15,6 +15,7 @@ service = MetabaseService()
 service.login()
 
 # ==== LOAD DATA ====
+
 df_overall = create_data(service, 0)
 df_overall['date'] = df_overall['date'].str[:10]
 df_today = create_data(service, 1)
@@ -26,6 +27,7 @@ df_qualitative_today = df_today[["comment",
 avg_score_overall = round(df_overall['rating'].mean(), 2)
 avg_score_today = round(df_today['rating'].mean(), 2)
 num_resp_today = df_today['rating'].count()
+weekly_avg = service.retrieve(665)
 
 # ==== FIGS ====
 fig_avg_rating_overall = pie_rating_count(df_overall)
@@ -37,9 +39,10 @@ fig_rating_by_class_by_date_curr = rating_by_date_class(df_overall, 0)
 fig_rating_by_track_by_date = rating_by_date_track(df_overall)
 
 # ==== DASHBOARD ====
-col1, col2, col3 = st.columns(3)
+col1, col2, col4, col3 = st.columns(4)
 col1.metric("Overall Rating", avg_score_overall)
 col2.metric("Todays Rating", avg_score_today)
+col4.metric("Weekly Avg", weekly_avg)
 col3.metric("Feedback Received Today", num_resp_today)
 
 cs, cb = st.columns([1, 3])
