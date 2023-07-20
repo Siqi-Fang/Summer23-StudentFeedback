@@ -5,7 +5,6 @@ import streamlit as st
 import plotly.express as px
 from utils import create_data, MetabaseService, pie_rating_count, bar_rating_by_class, \
     timeseries_rating, rating_by_date_class, rating_by_date_track
-import math 
 
 st.set_page_config(layout="wide") # needs to be the first call!
 st.title('Summer Camp 2023 Student Feedback & Ratings')
@@ -42,7 +41,7 @@ fig_rating_by_track_by_date = rating_by_date_track(df_overall)
 col1, col2, col4, col3 = st.columns(4)
 col1.metric("Overall Rating", avg_score_overall)
 col2.metric("Todays Rating", avg_score_today)
-col4.metric("Weekly Avg", weekly_avg)
+col4.metric("Weekly Avg", weekly_avg.iloc[0][0].round(2))
 col3.metric("Feedback Received Today", num_resp_today)
 
 cs, cb = st.columns([1, 3])
