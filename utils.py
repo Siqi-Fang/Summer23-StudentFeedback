@@ -302,6 +302,8 @@ def timeseries_rating(df):
                     xaxis_tickformat="%d-%m",
                     xaxis_range=['2023-06-05', '2023-09-01'],
                     )
+    fig.update_xaxes(
+        rangebreaks=[dict(bounds=["sat", "mon"])])
     
     return fig
 
