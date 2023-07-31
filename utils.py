@@ -163,6 +163,11 @@ NAME_2_TRACK = {
     'energetic-emus': "3-Week NCV (EST)",
     "keen-kiwis": "3-Week NLP (EST)",
     'generous-grapefruits': "3-Week NLP (EST)",
+    # C2
+    'dizzy-doughnut': "One Week DS (EST)",
+    'charming-cheesecakes': "One Week DS (EST)",
+    'popping-pistachios': "One Week DS (PST)",
+    'glittering-gingerbreads': "One Week GameDev (PST)",
 }
 
 CURRENT_CLASSES = [
@@ -197,6 +202,11 @@ CURRENT_CLASSES = [
     'tasty-tacos',
     'bold-badgers',
     'energetic-emus',
+    # C2
+    'dizzy-doughnut',
+    'charming-cheesecakes',
+    'popping-pistachios',
+    'glittering-gingerbreads',
 ]
 
 class MetabaseService:
