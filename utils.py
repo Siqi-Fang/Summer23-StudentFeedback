@@ -168,6 +168,10 @@ NAME_2_TRACK = {
     'charming-cheesecakes': "One Week DS (EST)",
     'popping-pistachios': "One Week DS (PST)",
     'glittering-gingerbreads': "One Week GameDev (PST)",
+    #c3
+    'radiant-raspberries': "One Week DS (EST)",
+    'playful-pretzels':"One Week GameDev (PST)",
+    'jovial-jujubes': "One Week DS (PST)",
 }
 
 CURRENT_CLASSES = [
@@ -202,11 +206,10 @@ CURRENT_CLASSES = [
     'tasty-tacos',
     'bold-badgers',
     'energetic-emus',
-    # C2
-    'dizzy-doughnut',
-    'charming-cheesecakes',
-    'popping-pistachios',
-    'glittering-gingerbreads',
+    # C3
+    'radiant-raspberries',
+    'playful-pretzels',
+    'jovial-jujubes',
 ]
 
 class MetabaseService:
