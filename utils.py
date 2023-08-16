@@ -182,7 +182,7 @@ NAME_2_TRACK = {
     "enchanting-espressos": "3-Week NLP (PST)",
     "captivating-cupcakes": "3-Week NLP (PST)",
     "cozy-coconuts": "One Week DS (EST)",
-    "tranquil-tirmisus": "One Week DS (EST)",
+    "tranquil-tiramisus": "One Week DS (PST)",
     
 }
 
@@ -198,7 +198,7 @@ CURRENT_CLASSES = [
     "captivating-cupcakes",
     # D1
     "cozy-coconuts",
-    "tranquil-tirmisus",
+    "tranquil-tiramisus",
 ]
 
 class MetabaseService:
