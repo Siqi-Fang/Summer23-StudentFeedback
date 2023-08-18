@@ -55,7 +55,7 @@ st.plotly_chart(fig_rating_by_track_by_date, theme="streamlit",
 
 
 curr_ratings, past_ratings, today_text, curr_batch, text = st.tabs(
-    ["📈 Batch C Ratings", "📈 All Ratings", "📅 Today's Feedback ", "🔠 Batch C Feedback", "🗃 All Feedback", ])
+    ["📈 Batch D Ratings", "📈 All Ratings", "📅 Today's Feedback ", "🔠 Batch D Feedback", "🗃 All Feedback", ])
 
 curr_ratings.subheader("Batch D Ratings")
 curr_ratings.plotly_chart(fig_rating_by_class_overall_curr, theme="streamlit",
