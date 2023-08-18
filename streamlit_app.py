@@ -22,7 +22,7 @@ df_qualitative = df_overall[["date", "comment", "rating", "studentUsername","nam
 df_qualitative = df_qualitative.sort_values(by='date', ascending=False)
 df_qualitative_today = df_today[["comment",
                                  "rating", "studentUsername", "name", "track"]]
-df_this_batch = df_qualitative[df_qualitative['date']>'2023-07-23']
+df_this_batch = df_qualitative[df_qualitative['date']>'2023-08-13']
 # ==== NUMEBRS ====
 avg_score_overall = round(df_overall['rating'].mean(), 2)
 avg_score_today = round(df_today['rating'].mean(), 2)
@@ -57,7 +57,7 @@ st.plotly_chart(fig_rating_by_track_by_date, theme="streamlit",
 curr_ratings, past_ratings, today_text, curr_batch, text = st.tabs(
     ["📈 Batch C Ratings", "📈 All Ratings", "📅 Today's Feedback ", "🔠 Batch C Feedback", "🗃 All Feedback", ])
 
-curr_ratings.subheader("Batch C Ratings")
+curr_ratings.subheader("Batch D Ratings")
 curr_ratings.plotly_chart(fig_rating_by_class_overall_curr, theme="streamlit",
                           use_container_width=True)
 curr_ratings.plotly_chart(fig_rating_by_class_by_date_curr, theme="streamlit",
@@ -73,7 +73,7 @@ past_ratings.plotly_chart(fig_rating_by_class_by_date, theme="streamlit",
 today_text.subheader("Todays Feedback")
 today_text.dataframe(df_qualitative_today, hide_index=True)
 
-curr_batch.subheader("Batch C Feedback")
+curr_batch.subheader("Batch D Feedback")
 curr_batch.dataframe(df_this_batch, hide_index=True)
 
 text.subheader("All Feedback")
