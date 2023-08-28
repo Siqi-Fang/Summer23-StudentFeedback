@@ -168,7 +168,7 @@ NAME_2_TRACK = {
     'charming-cheesecakes': "One Week DS (EST)",
     'popping-pistachios': "One Week DS (PST)",
     'glittering-gingerbreads': "One Week GameDev (PST)",
-    #c3
+    #C3
     'radiant-raspberries': "One Week DS (EST)",
     'playful-pretzels':"One Week GameDev (PST)",
     'jovial-jujubes': "One Week DS (PST)",
@@ -181,7 +181,8 @@ NAME_2_TRACK = {
     "blissful-blueberries": "3-Week NLP (PST)",
     "enchanting-espressos": "3-Week NLP (PST)",
     "captivating-cupcakes": "3-Week NLP (PST)",
-    "fuzzy-fries": "One Week DS (EST)",
+    "whimsical-wonton": "One Week DS (EST)",
+    "fancy-fondue":"One Week DS (PST)"
     
 }
 
@@ -196,7 +197,9 @@ CURRENT_CLASSES = [
     "enchanting-espressos",
     "captivating-cupcakes",
     # D1
-    "fuzzy-fries"
+    "whimsical-wonton",
+    "fancy-fondue"
+
 ]
 
 class MetabaseService:
